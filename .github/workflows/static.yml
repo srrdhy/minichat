@@ -1,0 +1,35 @@
+name: Deploy MiniChat Web to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]     # 推送到 main 时自动发布
+  workflow_dispatch:        # 允许手动触发
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 你的前端是纯静态文件，直接上传 web/ 目录
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
