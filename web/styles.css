@@ -1,0 +1,28 @@
+:root { color-scheme: light dark; --bg:#f8f9fb; --card:#fff; --text:#111; --muted:#666; --border:#e5e7eb; --primary:#111; }
+.dark { --bg:#0b0c0f; --card:#12141a; --text:#e5e7eb; --muted:#9aa0aa; --border:#1e2230; --primary:#e5e7eb; }
+* { box-sizing: border-box; }
+body { margin:0; font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background: var(--bg); color: var(--text); }
+.topbar { height: 48px; display:flex; align-items:center; justify-content:space-between; padding: 0 12px; border-bottom: 1px solid var(--border); position: sticky; top:0; background: var(--bg); }
+.topbar .right { display:flex; gap:8px; align-items:center; }
+.card { max-width: 480px; margin: 24px auto; padding: 20px; background: var(--card); border:1px solid var(--border); border-radius: 14px; }
+input, select, button { padding: 10px 12px; border-radius: 12px; border:1px solid var(--border); background: transparent; color: inherit; }
+input { width: 100%; }
+button { cursor:pointer; }
+.primary { background: var(--primary); color: var(--bg); border-color: var(--primary); }
+.hidden { display:none; }
+.app { display:grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 48px); }
+.sidebar { border-right: 1px solid var(--border); padding: 12px; display:flex; flex-direction: column; gap: 16px; }
+.me { display:flex; gap:10px; align-items:center; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background:#ccc; }
+.bold { font-weight: 600; }
+.block-title { font-weight: 600; margin-bottom: 8px; }
+.row { display:flex; gap:8px; }
+.list { list-style: none; padding:0; margin:8px 0 0 0; display:flex; flex-direction:column; gap:6px; }
+.list li { display:flex; gap:8px; align-items:center; padding:8px; border:1px solid var(--border); border-radius: 12px; cursor:pointer; }
+.list li.active { outline: 2px solid var(--primary); }
+.chat { display:flex; flex-direction: column; }
+.chat-title { padding: 8px 12px; border-bottom:1px solid var(--border); font-weight: 600; }
+.messages { flex:1; overflow:auto; padding: 12px; display:flex; flex-direction:column; gap:8px; }
+.msg { max-width: 70%; padding: 10px 12px; border-radius: 12px; background: var(--card); border:1px solid var(--border); }
+.msg.me { align-self: flex-end; }
+.composer { display:flex; gap:8px; padding: 8px; border-top: 1px solid var(--border); }

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MiniChat</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-AOLeBoZQJ7B9Ybda0qJ+o7zGR9lH5q6JrQmL2u2M1J9n8o6Q9ChU0t0qk9hVd7dQ" crossorigin="anonymous"></script>
+  <script defer src="config.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="left">
+      <strong>MiniChat</strong>
+    </div>
+    <div class="right">
+      <button id="themeBtn"></button>
+      <select id="langSelect">
+        <option value="zh">中文</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="auth" class="card">
+    <h2 data-i18n="loginTitle">登录 / 设置昵称</h2>
+    <input id="username" placeholder="nickname / 昵称" />
+    <input id="avatar" placeholder="avatar url (optional)" />
+    <button id="loginBtn" class="primary" data-i18n="enter">进入</button>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="me">
+        <img id="meAvatar" class="avatar" />
+        <div>
+          <div id="meName" class="bold"></div>
+          <small id="onlineCount"></small>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-title" data-i18n="friends">好友</div>
+        <div class="row">
+          <input id="friendInput" placeholder="username" />
+          <button id="addFriendBtn" data-i18n="add">添加</button>
+        </div>
+        <ul id="friendList" class="list"></ul>
+      </div>
+
+      <div class="block">
+        <div class="block-title" data-i18n="groups">群组</div>
+        <div class="row">
+          <input id="groupNameInput" placeholder="group id / name" />
+          <button id="newGroupBtn" data-i18n="create">创建/加入</button>
+        </div>
+        <ul id="groupList" class="list"></ul>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <div id="chatTitle" class="chat-title"></div>
+      <div id="msgList" class="messages"></div>
+      <div class="composer">
+        <input id="msgInput" placeholder="Type a message / 输入消息" />
+        <button id="sendBtn" class="primary" data-i18n="send">发送</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
