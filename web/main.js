@@ -1,15 +1,19 @@
 (function(){
   // Theme init
   const savedTheme = localStorage.getItem('theme');
-  const logoutBtn = document.getElementById('logoutBtn');
-  logoutBtn.addEventListener('click', () => {
-    localStorage.removeItem('minichat_me');
-    location.reload();
-  });
   if(savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)){
     document.documentElement.classList.add('dark');
   }
   const themeBtn = document.getElementById('themeBtn');
+  // Logout (切换账号)
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('minichat_me');
+      location.reload();
+    });
+  }
+
   themeBtn.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
