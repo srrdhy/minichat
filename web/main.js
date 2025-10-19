@@ -1,6 +1,11 @@
 (function(){
   // Theme init
   const savedTheme = localStorage.getItem('theme');
+  const logoutBtn = document.getElementById('logoutBtn');
+  logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('minichat_me');
+    location.reload();
+  });
   if(savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)){
     document.documentElement.classList.add('dark');
   }
